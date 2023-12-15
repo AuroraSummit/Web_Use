@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录和注册页面</title>
+    <link rel="stylesheet" href="./Web_CSS.css" />
+  </head>
+  <body>
+    <div class="menuToggle"></div>
+    <div class="sidebar">
+      <ul>
+        <li class="logo" style="--bg: #333">
+          <a href="#">
+            <div class="icon">
+              <ion-icon name="logo-web-component"></ion-icon>
+            </div>
+            <div class="text">LWP的个人网站</div>
+          </a>
+        </li>
+        <div class="menu-list">
+          <li style="--bg: #f44336" class="active">
+            <a href="https://aurorasummit.github.io/Summit/">
+              <div class="icon"><ion-icon name="home-outline"></ion-icon></ion-icon></div>
+              <div class="text">首页</div>
+            </a>
+          </li>
+
+          <li style="--bg: #ffa117">
+            <a href="#">
+              <div class="icon">
+                <ion-icon name="people-outline"></ion-icon>
+              </div>
+              <div class="text">社区</div>
+            </a>
+          </li>
+
+          <li style="--bg: #0fc70f">
+            <a href="#">
+              <div class="icon">
+                <ion-icon name="chatbox-outline"></ion-icon>
+              </div>
+              <div class="text">信息</div>
+            </a>
+          </li>
+
+          <li style="--bg: #2196f3">
+            <a href="#">
+              <div class="icon">
+                <ion-icon name="pie-chart-outline"></ion-icon>
+              </div>
+              <div class="text">算数</div>
+            </a>
+          </li>
+
+          <li style="--bg: #b145e9">
+            <a href="#">
+              <div class="icon"><ion-icon name="cart-outline"></ion-icon></div>
+              <div class="text">购物</div>
+            </a>
+          </li>
+
+          <li style="--bg: #e91163">
+            <a href="#">
+              <div class="icon">
+               <ion-icon name="settings-outline"></ion-icon>
+              </div>
+              <div class="text">设置</div>
+            </a>
+          </li>
+        </div>
+        <div class="bottom">
+          <li style="--bg: #333">
+            <a href="#">
+              <div class="icon">
+                <div class="imgBx">
+                  <img
+                    src="../微信图片_20231109162820.jpg"
+                    width="50px"
+                    alt="user"
+                  />
+                </div>
+              </div>
+              <div class="text">AuroraSummit</div>
+            </a>
+          </li>
+
+          <li style="--bg: #333">
+            <a href="#">
+              <div class="icon">
+                <ion-icon name="log-out-outline"></ion-icon>
+              </div>
+              <div class="text">离开</div>
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script>
+      const menuToggle = document.querySelector(".menuToggle"),
+        sidebar = document.querySelector(".sidebar"),
+        Menulist = document.querySelectorAll(".menu-list li");
+      menuToggle.onclick = function () {
+        menuToggle.classList.toggle("active");
+        sidebar.classList.toggle("active");
+      };
+
+      function activeLink() {
+        Menulist.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+
+      Menulist.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+  </body>
+</html>
