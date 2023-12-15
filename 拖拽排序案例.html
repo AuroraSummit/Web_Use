@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拖拽排序</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: black;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .list {
+        width: 80%;
+      }
+      .list-item {
+        background-color: aquamarine;
+        padding: 20px;
+        margin: 5px 0px;
+        line-height: 20px;
+        color: #fff;
+        cursor: move;
+        border-radius: 5px;
+        user-select: none;
+      }
+      .list-item.moving {
+        background: transparent; /*背景透明*/
+        color: transparent;
+        border: 1px dashed #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="list">
+      <div draggable="true" class="list-item">1</div>
+      <div draggable="true" class="list-item">2</div>
+      <div draggable="true" class="list-item">3</div>
+      <div draggable="true" class="list-item">4</div>
+      <div draggable="true" class="list-item">5</div>
+    </div>
+    <script src="move.js"></script>
+    <script src="Flip.js"></script>
+  </body>
+</html>
