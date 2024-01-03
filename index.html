@@ -3,71 +3,425 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>导航栏边框</title>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-      .top {
-        border: 1px solid rebeccapurple;
-      }
-      .logo {
-        border: 1px double red;
-      }
-      .logo img {
-        margin-left: 20px;
-        margin-top: 20px;
-        width: 100px;
-        height: 100px;
-        border-radius: 2em;
-      }
-      .logo marquee {
-        font-size: 2em;
-      }
-      .logo p {
-        font-size: 1.5em;
-        margin-left: 20px;
-      }
-      .nav {
-        height: 50px;
-      }
-      .nav a {
-        display: inline-block;
-        text-align: center;
-        margin-left: 20px;
-        text-decoration: none;
-        color: aliceblue;
-        background-color: aquamarine;
-        height: 50px;
-        width: 200px;
-        border-radius: 20px;
-        align-items: center;
-        line-height: 50px;
-      }
-    </style>
+    <title>网站主页</title>
   </head>
-  <body>
-    <div class="top">
-      <div class="logo">
-        <marquee behavior="" direction=""
-          >这是一个案例实现的网站跳转页面</marquee
-        >
-        <img src="./微信图片_20231109162820.jpg" alt="" />
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #eee;
+    }
 
-        <p>Summit</p>
+    .flex {
+      display: flex;
+    }
+
+    .flex1 {
+      flex: 1;
+    }
+
+    .yinYing {
+      box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+        rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 11%) 0px 1px 3px 0px;
+    }
+
+    .baiSe {
+      background-color: #fff;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 2em;
+    }
+
+    .lg {
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #999;
+    }
+
+    .daoHang {
+      padding: 10px 20px;
+      border-bottom: 1px solid rgb(201, 201, 201);
+      font-size: 16px;
+      text-align: center;
+      color: #666;
+      display: block;
+      line-height: 2em;
+      text-decoration: none;
+    }
+
+    .head {
+      height: 70px;
+      z-index: 2;
+      text-indent: 2em;
+      font-size: 1.2em;
+    }
+
+    .column {
+      flex-direction: column;
+    }
+
+    .mg8 {
+      margin: 8px;
+    }
+
+    .shuJu {
+      height: 100px;
+    }
+
+    .lieBiaoXiang {
+      height: 160px;
+    }
+
+    .mar8 {
+      margin-right: 8px;
+    }
+
+    .mgt8 {
+      margin-top: 8px;
+    }
+
+    .neiRong::-webkit-scrollbar {
+      display: none;
+    }
+
+    ul,
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* 下拉菜单外层容器样式 */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* 下拉按钮样式 */
+    .dropbtn {
+      background-color: #f1f1f1;
+      color: #333;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      width: 200px;
+    }
+
+    /* 下拉内容样式 */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    /* 下拉内容链接样式 */
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      background-color: rgba(200, 150, 10, 0.2);
+      line-height: 2em;
+      padding: 10px;
+    }
+
+    /* 鼠标悬停在下拉按钮或下拉内容时显示下拉内容 */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content > a:hover {
+      background-color: #333;
+      color: white;
+    }
+
+    .youQu {
+      margin-left: 8px;
+    }
+
+    @media (max-width: 600px) {
+      /* 小屏幕上取消侧边栏，后面学js时会教怎么弹出 */
+      .ceBian {
+        display: none;
+      }
+
+      /* 内容栏和数据栏flex方向改为竖向 */
+      .neiRong {
+        flex-direction: column;
+      }
+
+      .shuJuQu {
+        flex-direction: column;
+      }
+
+      /* 右区加左外边距 */
+      .youQu {
+        margin-left: 8px;
+      }
+
+      /* 数据块外边距，大小改为自动宽高 */
+      .shuJu {
+        margin: 0 0 8px;
+        flex: auto;
+      }
+    }
+
+    /* 通用样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #one {
+      height: 180px;
+      background-color: white;
+      margin: 350px auto;
+      /*上下50，左右自动*/
+      /* 设置内容居中 */
+      text-align: center;
+    }
+
+    #one p {
+      padding: 25px;
+
+      font-size: 30px;
+    }
+
+    #one p i {
+      color: rebeccapurple;
+      font-style: normal;
+      margin-right: 5px;
+    }
+
+    #one > span {
+      display: inline-block;
+      color: white;
+      background-color: black;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+    }
+    .item1 {
+      background-image: url("./微信图片_20231225000343.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+    }
+    .item1:hover {
+      opacity: 1;
+    }
+    .item2 {
+      background-image: url("./微信图片_20231225001314.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+    }
+    .item2:hover {
+      opacity: 1;
+    }
+    .item3 {
+      background-image: url("./微信图片_20231225001511.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+    }
+    .item3:hover {
+      opacity: 1;
+    }
+    .item4 {
+      background-image: url("./微信图片_20231225001822.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+    }
+    .item4:hover {
+      opacity: 1;
+    }
+    .name {
+      margin-left: 10px;
+    }
+    .name:hover {
+      color: aqua;
+    }
+    .js:hover {
+      color: thistle;
+    }
+  </style>
+
+  <body class="flex" style="margin: 15px 20px">
+    <!-- 侧边栏 -->
+    <div
+      style="width: 200px; z-index: 3"
+      class="ceBian flex column baiSe yinYing"
+    >
+      <div class="flex lg">
+        <img
+          class="logo"
+          src="./微信图片_20231109162820.jpg"
+          alt="logo"
+          title="logo"
+        />
+        <div class="name">AuroraSummit</div>
       </div>
-      <div class="nav">
-        <a href="./你爱我吗.html" target="_blank"> 你爱我吗？</a>
-        <a href="./拖拽排序案例.html" target="_blank"> 拖拽排序</a>
-        <a href="./留言板.html" target="_blank"> 留言板</a>
-        <a href="./图片轮播案例.html" target="_blank"> 图片轮播</a>
-        <a href="./日历.html" target="_blank">日历</a>
-        <a href="./Web_CSS.html" target="_blank">简易主页案例</a>
+      <div class="flex1">
+        <div class="dropdown">
+          <button class="dropbtn">各项基本案例</button>
+          <div class="dropdown-content">
+            <a href="./留言板.html" target="_blank">留言板</a>
+            <a href="./日历.html" target="_blank">日历</a>
+            <a href="./拖拽排序案例.html" target="_blank">拖拽排序案例</a>
+            <a href="./订单确定案例.html" target="_blank">订单确定案例</a>
+            <a href="./图片轮播案例.html" target="_blank">图片轮播案例</a>
+            <a href="./你爱我吗.html" target="_blank">你爱我吗?</a>
+            <a href="./圣诞树案例.html">圣诞树案例</a>
+          </div>
+          <a href="#" class="daoHang">敬请期待</a>
+          <a href="#" class="daoHang">敬请期待</a>
+          <a href="#" class="daoHang">敬请期待</a>
+          <a></a>
+        </div>
       </div>
     </div>
+    <!-- 主区域 -->
+    <div class="flex flex1 column">
+      <!-- 头部栏 -->
+      <div class="head baiSe yinYing">
+        该网站是一个全新的设计理念， 加入了<span class="js">JavaScript</span
+        >的元素，同时也提供的一些站主墓前所写的部分网站的案例实现效果，
+        当然总的来说还是在完善,相较于最早制作的网站重,有了些许的新奇的地方。
+      </div>
+      <!-- 内容栏 -->
+      <div class="flex flex1 neiRong" style="overflow: auto">
+        <!-- 左区 -->
+        <div style="flex: 3" class="flex column mg8">
+          <!-- 数据区 -->
+          <div class="flex shuJuQu">
+            <!-- 四个小块显示重点数据 -->
+            <div
+              style="height: 150px"
+              class="shuJu baiSe yinYing flex1 mgr8 item1"
+            ></div>
+            <div
+              style="height: 150px"
+              class="shuJu baiSe yinYing flex1 mgr8 item2"
+            ></div>
+            <div
+              style="height: 150px"
+              class="shuJu baiSe yinYing flex1 mgr8 item3"
+            ></div>
+            <div
+              style="height: 150px"
+              class="shuJu baiSe yinYing flex1 item4"
+            ></div>
+          </div>
 
-    <div class="button"></div>
+          <!-- 列表区，列表数据可以无限增加 -->
+          <div class="flex column">
+            <!-- 列表项 -->
+            <div class="lieBiaoXiang mgt8 baiSe yinYing"></div>
+
+            <div class="lieBiaoXiang mgt8 baiSe yinYing">
+              <div id="one">
+                <p>倒计时:<i> 2024年-12-31 23小时59分59 </i>还有</p>
+                <span>10</span>
+                <span>天</span>
+                <span>10</span>
+                <span>小时</span>
+                <span>10</span>
+                <span>分</span>
+                <span>10</span>
+                <span>秒</span>
+              </div>
+            </div>
+
+            <div
+              style="height: 200px; text-indent: 2em; font-size: 1.3em"
+              class="lieBiaoXiang mgt8 baiSe yinYing"
+            >
+              这边是一个简单的介绍（虽然暂时来说界面效果一般,仍然在完善中）,
+              那么本网站的站主呢,现是一名大二的计科的学生,
+              当然,可以能计科这个专业大多数都是偏向于 前端或者后端，但是呢,
+              站主不一样,墓前在往嵌入式的方向发展,
+              没错,就是单片机,同时也是报名了第十五届蓝桥杯
+              的电子组嵌入式个人赛,这条路呢,会很难,但是如今,
+              看看自己的效果怎么样,当然,也是想能够做出
+              个机器人来的,所以才有想做嵌入式的想法,
+              当然,墓前来说,我很菜,所以得不断的学习,
+              不能够让自己停下来,当然,屏幕前的你也是,
+              不能让自己停下来！得不断的学习！
+            </div>
+          </div>
+        </div>
+        <!-- 右区 -->
+        <div style="flex: 1" class="youQu flex column mgr8 mgt8">
+          <!-- 提示区 -->
+          <div style="height: 150px" class="baiSe yinYing">
+            <img
+              src="./光.png"
+              style="margin: 0px 0px 5px 80px; width: 200px"
+              height="80px"
+              alt=""
+            />
+            <audio
+              style="margin: 0px 0px 0px 40px"
+              src="./music/陈粒 - 光.ogg"
+              controls
+            ></audio>
+          </div>
+          <!-- 消息区 -->
+          <div style="height: 300px" class="mgt8 baiSe yinYing"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var btn = document.querySelector(".item1");
+      btn.onclick = function () {
+        window.location.href =
+          "https://www.icourse163.org/course/ZJU-93001?from=searchPage&outVendor=zw_mooc_pcssjg_";
+      };
+      var btn = document.querySelector(".item2");
+      btn.onclick = function () {
+        window.location.href =
+          "https://www.bilibili.com/video/BV1PY411e7J6/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click";
+      };
+      var btn = document.querySelector(".item3");
+      btn.onclick = function () {
+        window.location.href =
+          "https://www.bilibili.com/video/BV1n84y1i7td/?spm_id_from=333.337.search-card.all.click_";
+      };
+      var btn = document.querySelector(".item4");
+      btn.onclick = function () {
+        window.location.href =
+          "https://www.bilibili.com/video/BV18X4y1M763/?spm_id_from=333.337.search-card.all.click";
+      };
+      var sp = document.querySelectorAll("#one>span:nth-child(2n)"); //获取偶数位置的span
+      // console.log(sp);
+      var newyear = new Date("2024-12-31 23:59:59").getTime();
+
+      window.setInterval(function () {
+        var nowyear = new Date().getTime();
+        var t = newyear - nowyear;
+        var d = parseInt(t / 1000 / 60 / 60 / 24);
+        // console.log(parseInt(d));
+        sp[0].innerHTML = d >= 10 ? d : "0" + d;
+        var h = parseInt((t - d * 24 * 60 * 60 * 1000) / 1000 / 60 / 60);
+        // console.log(parseInt(h));
+        sp[1].innerHTML = h;
+        var m = parseInt((t / 60000) % 60);
+        sp[2].innerHTML = m;
+        var s = parseInt((t / 1000) % 60);
+        sp[3].innerHTML = s;
+      });
+    </script>
   </body>
 </html>
