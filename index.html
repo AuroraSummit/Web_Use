@@ -11,11 +11,9 @@
       height: 100vh;
       background-color: #eee;
     }
-
     .flex {
       display: flex;
     }
-
     .flex1 {
       flex: 1;
     }
@@ -24,24 +22,20 @@
       box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
         rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 11%) 0px 1px 3px 0px;
     }
-
     .baiSe {
       background-color: #fff;
     }
-
     .logo {
       width: 40px;
       height: 40px;
       border-radius: 2em;
     }
-
     .lg {
       padding: 10px;
       align-items: center;
       justify-content: center;
       border-bottom: 1px solid #999;
     }
-
     .daoHang {
       padding: 10px 20px;
       border-bottom: 1px solid rgb(201, 201, 201);
@@ -52,55 +46,44 @@
       line-height: 2em;
       text-decoration: none;
     }
-
     .head {
       height: 70px;
       z-index: 2;
       text-indent: 2em;
       font-size: 1.2em;
     }
-
     .column {
       flex-direction: column;
     }
-
     .mg8 {
       margin: 8px;
     }
-
     .shuJu {
       height: 100px;
     }
-
     .lieBiaoXiang {
       height: 160px;
     }
-
     .mar8 {
       margin-right: 8px;
     }
-
     .mgt8 {
       margin-top: 8px;
     }
-
     .neiRong::-webkit-scrollbar {
       display: none;
     }
-
     ul,
     li {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-
     /* 下拉菜单外层容器样式 */
     .dropdown {
       position: relative;
       display: inline-block;
     }
-
     /* 下拉按钮样式 */
     .dropbtn {
       background-color: #f1f1f1;
@@ -111,7 +94,6 @@
       cursor: pointer;
       width: 200px;
     }
-
     /* 下拉内容样式 */
     .dropdown-content {
       display: none;
@@ -121,7 +103,6 @@
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1;
     }
-
     /* 下拉内容链接样式 */
     .dropdown-content a {
       color: #333;
@@ -132,55 +113,45 @@
       line-height: 2em;
       padding: 10px;
     }
-
     /* 鼠标悬停在下拉按钮或下拉内容时显示下拉内容 */
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .dropdown-content > a:hover {
       background-color: #333;
       color: white;
     }
-
     .youQu {
       margin-left: 8px;
     }
-
     @media (max-width: 600px) {
       /* 小屏幕上取消侧边栏，后面学js时会教怎么弹出 */
       .ceBian {
         display: none;
       }
-
       /* 内容栏和数据栏flex方向改为竖向 */
       .neiRong {
         flex-direction: column;
       }
-
       .shuJuQu {
         flex-direction: column;
       }
-
       /* 右区加左外边距 */
       .youQu {
         margin-left: 8px;
       }
-
       /* 数据块外边距，大小改为自动宽高 */
       .shuJu {
         margin: 0 0 8px;
         flex: auto;
       }
     }
-
     /* 通用样式 */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     #one {
       height: 180px;
       background-color: white;
@@ -189,19 +160,15 @@
       /* 设置内容居中 */
       text-align: center;
     }
-
     #one p {
       padding: 25px;
-
       font-size: 30px;
     }
-
     #one p i {
       color: rebeccapurple;
       font-style: normal;
       margin-right: 5px;
     }
-
     #one > span {
       display: inline-block;
       color: white;
@@ -256,6 +223,97 @@
     .js:hover {
       color: thistle;
     }
+    ul {
+      position: fixed;
+      left: 50%;
+      margin-left: 502px;
+      bottom: 20px;
+      /* background-color: bisque; */
+      list-style: none;
+    }
+    li {
+      width: 48px;
+      height: 48px;
+      background-image: url("img/icon-merged_b8bc211.png");
+      background-size: cover;
+      margin-bottom: 3px;
+      position: relative;
+      border-radius: 3px;
+      /*overflow: hidden;隐藏li外面的a*/
+    }
+
+    .report {
+      height: 92px;
+
+      background-image: url(img/report_3c9a61f.png);
+    }
+    .roumer {
+      height: 92px;
+      background-image: url("./微信图片_20231225003402\(1\).jpg");
+      width: 70px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .search {
+      background-position-y: -204px;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+    ul li a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      line-height: 48px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      background-image: url("./微信图片_20230929223100.jpg");
+      transform-origin: -50% 50%;
+      transform: rotateZ(90deg); /*旋转90度*/
+      transition: transform 2s; /*旋转过渡时间*/
+    }
+    .roumer a {
+      height: 92px;
+      line-height: 92px;
+      transform-origin: -100% 50%;
+      transform: rotateZ(90deg);
+    }
+    .report a {
+      height: 92px;
+      line-height: 92px;
+      transform-origin: -100% 50%;
+      transform: rotateZ(90deg);
+    }
+    li:hover a {
+      transform: rotateZ(0deg);
+    }
+    .roumer,
+    .report,
+    .search {
+      overflow: hidden;
+    }
+    .help a {
+      display: none;
+    }
+    ul li:hover a {
+      display: block;
+    }
+    .name {
+      text-decoration: none;
+      color: black;
+    }
+    span1 {
+      user-select: none;
+      cursor: default;
+      font-size: 20px;
+      color: cadetblue;
+      position: absolute;
+      transition: 0.5s;
+    }
   </style>
 
   <body class="flex" style="margin: 15px 20px">
@@ -265,13 +323,20 @@
       class="ceBian flex column baiSe yinYing"
     >
       <div class="flex lg">
-        <img
+        <a
+            href="https://space.bilibili.com/362755119?spm_id_from=333.1007.0.0"
+            class="name"
+            target="_blank"
+            >  <img
           class="logo"
           src="./微信图片_20231109162820.jpg"
           alt="logo"
           title="logo"
         />
-        <div class="name">AuroraSummit</div>
+        <div>
+        AuroraSummit</a
+          >
+        </div>
       </div>
       <div class="flex1">
         <div class="dropdown">
@@ -284,14 +349,21 @@
             <a href="./图片轮播案例.html" target="_blank">图片轮播案例</a>
             <a href="./你爱我吗.html" target="_blank">你爱我吗?</a>
             <a href="./圣诞树案例.html">圣诞树案例</a>
+            <a href="./筛子.html" target="_blank">筛子</a>
           </div>
-          <a href="#" class="daoHang">敬请期待</a>
-          <a href="#" class="daoHang">敬请期待</a>
-          <a href="#" class="daoHang">敬请期待</a>
-          <a></a>
         </div>
+        <a href="./3d立体方块动画.html" target="_blank" class="daoHang"
+          >3d方块立体动画</a
+        >
+        <a href="./导航条滑块.html" target="_blank" class="daoHang"
+          >导航条滑块</a
+        >
+        <a href="./轮播图plus.html" target="_blank" class="daoHang"
+          >轮播图plus</a
+        >
       </div>
     </div>
+
     <!-- 主区域 -->
     <div class="flex flex1 column">
       <!-- 头部栏 -->
@@ -374,7 +446,7 @@
             />
             <audio
               style="margin: 0px 0px 0px 40px"
-              src="./陈粒 - 光.ogg"
+              src="./music/陈粒 - 光.ogg"
               controls
             ></audio>
           </div>
@@ -382,6 +454,22 @@
           <div style="height: 300px" class="mgt8 baiSe yinYing"></div>
         </div>
       </div>
+      <ul>
+        <li class="roumer">
+          <a
+            href="https://space.bilibili.com/362755119?spm_id_from=333.1007.0.0"
+            target="_blank"
+            >关注我们</a
+          >
+        </li>
+        <li class="report">
+          <a href="https://110.baidu.com/" target="_blank">举报</a>
+        </li>
+
+        <li class="search">
+          <a href="https://www.baidu.com/" target="_blank">搜索</a>
+        </li>
+      </ul>
     </div>
     <script>
       var btn = document.querySelector(".item1");
@@ -422,6 +510,38 @@
         var s = parseInt((t / 1000) % 60);
         sp[3].innerHTML = s;
       });
+      //设置随机出现的文字数组
+      var arr = [
+        "一以贯之的努力，不可懈怠的人生。",
+        " 你只管努力，剩下的交给时间。",
+        "以蝼蚁之行，展鸿鹄之志。",
+        "得之坦然，失之淡然，争取必然，顺其自然。",
+        "莫道桑榆晚，为霞尚满天。",
+        "越努力，越幸运。",
+      ];
+      document.onclick = function (x) {
+        //创建元素结点对象
+        var span = document.createElement("span1");
+        //获取当前鼠标的坐标
+        span.style.left = x.clientX + "px";
+        span.style.top = x.clientY + "px";
+        //让span的值为arr数组内随机的一个值
+        span.innerHTML = arr[Math.floor(Math.random() * arr.length)];
+        //设置span 的动画效果
+        setTimeout(function () {
+          span.style.opacity = "0";
+          span.style.transform = "translateY(-230px)";
+        }, 100);
+        //清掉opacort为0的span
+        var chi = document.getElementsByClassName("span1");
+        for (var i = 0; i < chi.length; i++) {
+          if (chi[i].style.opacity === "0") {
+            document.body.removeChild(chi[i]);
+          }
+        }
+        //将span添加到body里
+        document.body.appendChild(span);
+      };
     </script>
   </body>
 </html>
