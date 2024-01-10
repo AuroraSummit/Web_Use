@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>导航条滑块</title>
+    <style>
+      nav a
+      {
+        color: black;
+       text-decoration: none;
+      }
+      :root{
+        --w:60vw;
+        --h: 80px;
+        --r: 15PX;
+        --div_w:calc(var(--w) / 5);
+      }
+      nav{
+      width: var(--w);
+      height: var(--h);
+      border-radius: var(--r);
+      background:rgba(255, 255, 255, .5);
+      box-shadow: 16px 16px 32px #9f9f9f,
+      -16px -16px 32px #ffffff;
+    display: flex;
+    margin: 100px auto;  
+     position: relative;
+    }
+    .item{
+      width: var(--div_w);
+      height: var(--h);
+      font-size: 30px;
+      text-align: center;
+      line-height: var(--h); 
+    }
+    .item:nth-child(2):hover ~ #block
+    {
+      left: var(--div_w);
+      transition: all 2000ms;
+    }
+    #block{
+       width: var(--div_w);
+      height: var(--h);
+      background-color:rgba(100, 100,130, .8);
+    border-radius: var(--r);
+    position: absolute; 
+    left: 0;
+    z-index: -1;
+    }
+           .item:nth-child(1):hover ~ #block
+    {
+      left: 0 ;
+      transition: all 2000ms;
+    }
+      .item:nth-child(3):hover ~ #block
+    {
+      left: calc(var(--div_w )*2) ;
+      transition: all 2000ms;
+    }
+       .item:nth-child(4):hover ~ #block
+    {
+      left: calc(var(--div_w )*3) ;
+      transition: all 2000ms;
+    }
+       .item:nth-child(5):hover ~ #block
+    {
+      left: calc(var(--div_w )*4) ;
+      transition: all 2000ms;
+    }
+    .item:hover{
+      cursor: pointer;
+    }
+    </style>
+    <body>
+      <nav>
+      <a href="#" class="item">HTML5</a>
+      <a href="#" class="item">CSS3</a>
+      <a href="#" class="item">VUE</a>
+      <a href="#" class="item">PHP</a>
+      <a href="#" class="item">JS</a>
+  <div id="block"></div>
+    </nav>
+  </body>
+</html>
